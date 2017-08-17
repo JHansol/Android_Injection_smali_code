@@ -7,8 +7,8 @@ Sdcard / tmp.txt can be read through the logcat.
 
 ![sc1](./picture/a.png)
 
-execution image
+<b>execution image</b>
 
 ![sc2](./picture/b.png)
 
-injection app logcat
+<b>injection app logcat</b>
