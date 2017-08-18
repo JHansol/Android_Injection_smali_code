@@ -2,15 +2,15 @@ import os
 from xml.etree.ElementTree import parse
 import shutil # file copy
 
-path = "C:\\" # project path
-filename = "hhh"
+path = "C:\\bob_android"
+filename = "t"
 apkpath = ""
 index = 1
 
-folderename = "hhh"
+folderename = "t"
 
-keypath = "C:\\k.jks" # your key path
-keyname = 'mykey'
+keypath = "C:\\key.jks"
+keyname = 'key'
 main_path = ''
 main_path_file = ''
 
@@ -106,6 +106,11 @@ class android_analysis():
     def file_copy(self):
         shutil.copy('set.smali', main_path)
 
+    def install(self):
+        adb_path = 'adb'
+        install_path = adb_path + '\\adb install ' + path + '\\' + filename + str(index) + '.apk'
+        os.system(install_path)
+
 if __name__ == '__main__':
     c1 = android_analysis()
     while True:
@@ -113,7 +118,8 @@ if __name__ == '__main__':
         print '****************** 1. depackage *****************'
         print '****************** 2. Injection smali ***********'
         print '****************** 3. repackage *****************'
-        print '****************** 3. signing *******************'
+        print '****************** 4. signing *******************'
+        print '****************** 5. adb install ***************'
         val = input("input : ")
         if val == 1:
             c1.depack()
@@ -124,4 +130,7 @@ if __name__ == '__main__':
             c1.repack()
         elif val == 4:
             c1.sign()
-
+        elif val == 5:
+            c1.install()
+        else:
+            exit(1)
